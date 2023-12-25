@@ -3,6 +3,7 @@ import "./Login.css"
 function Login() {
   return (
     <>
+    <div className='flex flex-col h-screen bg-slate-300'>
     <section className="login flex justify-center pt-24">
     <div className="w-full max-w-xs">
         <form action="/login" method="POST" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -37,11 +38,12 @@ function Login() {
                 </a>
             </div>
         </form>
-        <p className="text-center text-gray-500 text-xs">
+        <p className="text-center text-slate-900 text-xs">
             &copy;2023 Sajilo Sifarish.  All rights reserved.
         </p>
     </div>
 </section>
+</div>
     </>
   )
 }
