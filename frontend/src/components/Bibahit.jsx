@@ -12,7 +12,7 @@ const Bibahit = () => {
                 <div className="mb-4 flex flex-row items-center w-full">
                     <div className="flex-grow">
                         <label htmlFor="municipality" className="block text-sm font-medium text-gray-600 text-left">
-                            गाउँ /नगरपालिका:<span className="text-red-500">*</span>
+                            गाउँ /नगरपालिका :<span className="text-red-500">*</span>
                         </label>
                         <input
                             type="text"
