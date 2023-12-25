@@ -62,15 +62,6 @@ function Home() {
             <h3>DASHBOARD</h3>
         </div> */}
         <div className='main-cards mt-10'>
-                    {/* <div  className='card'>
-                    <div className='card-inner'>
-                        <h3 className='text-center'>PRODUCTS</h3>
-                        
-                    </div>
-                    
-                    </div> */}
-
-
                     <div className='card h-20  hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
                         <div className='card-inner h-full flex justify-center items-center '>
                             <h3 className='text-center'>PRODUCTS</h3>
