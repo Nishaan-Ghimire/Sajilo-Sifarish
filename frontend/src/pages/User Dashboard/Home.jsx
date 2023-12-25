@@ -54,21 +54,73 @@ function Home() {
 
 
   return (
+    <>
     <main className='main-container'>
-        <div className='title'>
+    <div className='text-center mt-8'>
+      <h1 className='text-slate-900 text-3xl font-bold'>Apply Sifarish</h1>
+    </div>        {/* <div className='title'>
             <h3>DASHBOARD</h3>
-        </div>
-
-        <div className='main-cards'>
-                    <div  className='card'>
+        </div> */}
+        <div className='main-cards mt-10'>
+                    {/* <div  className='card'>
                     <div className='card-inner'>
-                        <h3>PRODUCTS</h3>
-                        <BsFillArchiveFill className='card_icon' />
+                        <h3 className='text-center'>PRODUCTS</h3>
+                        
                     </div>
-                    <h1>300</h1>
+                    
+                    </div> */}
+
+
+                    <div className='card h-20  hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
+                        <div className='card-inner h-full flex justify-center items-center '>
+                            <h3 className='text-center'>PRODUCTS</h3>
+                        </div>
                     </div>
 
-                    <div  className='card'>
+                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
+                        <div className='card-inner h-full flex justify-center items-center '>
+                            <h3 className='text-center'>PRODUCTS</h3>
+                        </div>
+                    </div>
+                    
+                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
+                        <div className='card-inner h-full flex justify-center items-center '>
+                            <h3 className='text-center'>PRODUCTS</h3>
+                        </div>
+                    </div>
+
+                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
+                        <div className='card-inner h-full flex justify-center items-center '>
+                            <h3 className='text-center'>PRODUCTS</h3>
+                        </div>
+                    </div>
+
+                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
+                        <div className='card-inner h-full flex justify-center items-center '>
+                            <h3 className='text-center'>PRODUCTS</h3>
+                        </div>
+                    </div>
+
+                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
+                        <div className='card-inner h-full flex justify-center items-center '>
+                            <h3 className='text-center'>PRODUCTS</h3>
+                        </div>
+                    </div>
+
+                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
+                        <div className='card-inner h-full flex justify-center items-center '>
+                            <h3 className='text-center'>PRODUCTS</h3>
+                        </div>
+                    </div>
+
+                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
+                        <div className='card-inner h-full flex justify-center items-center '>
+                            <h3 className='text-center'>PRODUCTS</h3>
+                        </div>
+                    </div>
+
+
+                    {/* <div  className='card'>
                     <div className='card-inner'>
                         <h3>CATEGORIES</h3>
                         <BsFillGrid3X3GapFill className='card_icon' />
@@ -90,10 +142,10 @@ function Home() {
                         <BsFillBellFill className='card_icon' />
                     </div>
                     <h1>42</h1>
-                    </div>
+                    </div> */}
         </div>
 
-        <div className='charts'>
+        {/* <div className='charts'>
         <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
@@ -139,9 +191,10 @@ function Home() {
       </ResponsiveContainer>
 
 
-        </div>
+        </div> */}
 
     </main>
+    </>
   )
 }
 
