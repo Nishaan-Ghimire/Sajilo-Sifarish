@@ -19,7 +19,6 @@ const authMiddleware = async (req, res, next) => {
 
     const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
 
-<<<<<<< HEAD
     const user = await User.findById(decoded?._id);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -27,17 +26,6 @@ const authMiddleware = async (req, res, next) => {
 
     req.user = user;
     next();
-=======
-        const user = await User.findById(decoded._id);
-        if (!user) {
-          return res.status(404).json({ message: "User not found" });
-          
-          }
-  
-        next();
-      }
-    );
->>>>>>> main
   } catch (error) {
     console.error(error);
     res.status(401).json({ message: "Invalid access token" });

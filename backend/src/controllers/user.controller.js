@@ -6,6 +6,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 const registerUser = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
+    console.log(fullName,email,password);
     if (!fullName?.trim() || !email?.trim() || !password?.trim()) {
       return res.status(400).json({ message: "All fields are required." });
     }
