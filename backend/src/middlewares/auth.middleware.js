@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { decode } from "jsonwebtoken";
 
 import { User } from "../models/user.model.js";
 
@@ -31,9 +31,9 @@ const authMiddleware = async (req, res, next) => {
         const user = await User.findById(decoded._id);
         if (!user) {
           return res.status(404).json({ message: "User not found" });
-        }
-
-        req.user = user;
+          
+          }
+  
         next();
       }
     );
