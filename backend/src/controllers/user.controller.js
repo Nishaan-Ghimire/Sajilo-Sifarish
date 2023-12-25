@@ -1,6 +1,8 @@
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
+
+// Registration Controller
 const registerUser = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
@@ -25,6 +27,9 @@ const registerUser = async (req, res) => {
   }
 };
 
+
+
+// Login Controller
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -50,6 +55,9 @@ const loginUser = async (req, res) => {
   }
 };
 
+
+
+// Logout Controller
 const logoutUser = async (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
@@ -76,6 +84,8 @@ const logoutUser = async (req, res) => {
   }
 };
 
+
+// Get user detail
 const getProfile = async (req, res) => {
   if (req.user) {
     const user = await User.findById(req.user._id).select(
@@ -87,6 +97,8 @@ const getProfile = async (req, res) => {
   return res.status(404).json({ message: "User not found" });
 };
 
+
+// Photo upload controller
 const uploadImage = async (req, res) => {
   const imageLocalPath = req.file?.path;
   if (!imageLocalPath) {
