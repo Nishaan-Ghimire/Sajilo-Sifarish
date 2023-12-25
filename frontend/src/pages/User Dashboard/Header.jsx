@@ -9,13 +9,16 @@ function Header({OpenSidebar}) {
       </div>
 
       <div className='header-left'>
-        <BsSearch className='icon'/>
+        <div className="flex flex-shrink-0 items-center">
+          <a href="/"><img className="h-8 w-auto" src="/images/nepali.png" alt="Nepal Logo" /></a>
+          <h2 className='text-black font-bold font-sans text-xl ml-3'>Government Of Nepal</h2>
+        </div>
       </div>
         
        <div className='header-right'>
-        <BsFillBellFill className='icon' />
-        <BsFillEnvelopeFill className='icon' />
-        <BsPersonCircle className='icon'/>
+        <BsFillBellFill className='icon element' />
+        <BsFillEnvelopeFill className='icon element' />
+        <BsPersonCircle className='icon element'/>
         </div> 
 
     </header>
