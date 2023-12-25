@@ -1,4 +1,5 @@
 import { User } from "../models/user.model.js";
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const registerUser = async (req, res) => {
   try {
@@ -86,4 +87,23 @@ const getProfile = async (req, res) => {
   return res.status(404).json({ message: "User not found" });
 };
 
-export { getProfile, loginUser, logoutUser, registerUser };
+const uploadImage = async (req, res) => {
+  const imageLocalPath = req.file?.path;
+  if (!imageLocalPath) {
+    return res.status(400).json({ message: "No image found" });
+  }
+
+  const image = await uploadOnCloudinary(imageLocalPath);
+  if (!image.url) {
+    return res.status(400).json({ message: "Error while uploading on image" });
+  }
+
+  const user = await User.findByIdAndUpdate(
+    req.user?._id,
+    { $set: { image: image.url } },
+    { new: true }
+  ).select("-password");
+
+  return res.status(200).json({ user });
+};
+export { getProfile, loginUser, logoutUser, registerUser, uploadImage };
