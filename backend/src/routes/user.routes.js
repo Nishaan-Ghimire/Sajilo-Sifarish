@@ -13,6 +13,7 @@ import {
   logoutUser,
   registerUser,
   uploadImage,
+  resetPassword
 } from "../controllers/user.controller.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
 import adminMiddleware from "../middlewares/admin.middleware.js";
@@ -22,13 +23,13 @@ const router = express.Router();
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
+router.post("/reset-password", resetPassword);
 
 
 // admin routes
 router.post('/admin/getdetailForm',adminMiddleware,getAllSifarishValues);
-// route In test
-// router.post('/admin/addSifarish',addSifarish);
-// router.post('/getRequiredFields',authMiddleware,getRequiredFields);
+
+// route to save details test
 router.post('/savedetailForm',authMiddleware,saveDetailsForm);
 
 
