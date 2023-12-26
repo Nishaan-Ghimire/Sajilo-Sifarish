@@ -28,6 +28,16 @@ const userSchema = new mongoose.Schema(
       enum: ["admin", "user"],
       default: "user",
     },
+    otp: {
+      type: Number,
+      default: null,
+    },
+    userDocuments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "UserDocument",
+      },
+    ],
   },
   { timestamps: true }
 );

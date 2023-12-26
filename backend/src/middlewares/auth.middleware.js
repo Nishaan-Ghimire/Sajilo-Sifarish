@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+
 import { User } from "../models/user.model.js";
 
 const authMiddleware = async (req, res, next) => {
@@ -18,7 +19,9 @@ const authMiddleware = async (req, res, next) => {
 
     const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
 
-    const user = await User.findById(decoded?._id);
+    const user = await User.findById(decoded?._id).select(
+      "-password -refreshToken"
+    );
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
