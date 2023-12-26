@@ -1,4 +1,12 @@
 import "./App.css";
+
+import Abibahit from "./components/Abibahit";
+import Janmadarta from "./components/Janmadarta";
+import Namsari from "./components/Namsari";
+import Template from "./components/NamsariTemplate";
+import TemplateAbibahitPranamit from "./components/TemplateAbibahitPranamit";
+import TemplateJanmaDarta from "./components/TemplateJanmaDarta";
+
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import About from "./pages/About/About";
@@ -7,6 +15,11 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Dashboard from "./pages/User Dashboard/Dashboard";
 import AdminDashboard from "./pages/Admin Dashboard/AdminDashboard";
+// function App() {
+//   return <>
+//     <  Template />
+//   </>;
+
 
 function App() {
   return (
@@ -27,12 +40,14 @@ function App() {
         <Route exact path= '/login' element={ <>  <Navbar/> <Login/></> }/>
       </Routes>
     </Router>
-
+)
+};
 
 
 
   </>
   )
+
 }
 
 export default App;
