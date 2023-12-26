@@ -1,58 +1,43 @@
-import { SifarishtypesModel } from "../models/sifarish.model.js";
+import { SifarishValueModel } from "../models/sifarish.model.js";
+import { User } from "../models/user.model.js";
 
-
-const addSifarish= async (req, res) => {
+const getAllSifarishValues = async (req, res) => {
   try {
-    // Extract data from the request body
-    const { type, forms } = req.body;
+    // Fetch all entries from SifarishValueModel
+    const allSifarishValues = await SifarishValueModel.find();
 
-    // Validate required fields
-    if (!type?.trim() || !forms || !Array.isArray(forms) || forms.length === 0) {
-      return res.status(400).json({ message: "Type and at least one form are required." });
-    }
+    // Find unique user_id values
+    const uniqueUserIds = [...new Set(allSifarishValues.map((item) => item.user_id))];
 
-    // Check if the Sifarish type already exists
-    const existingSifarishType = await SifarishtypesModel.findOne({ type });
-    if (existingSifarishType) {
-      return res.status(400).json({ message: "Sifarish type with this type already exists." });
-    }
+    // Fetch full name for each unique user_id
+    const userDetailsPromises = uniqueUserIds.map(async (userId) => {
+        try {
+          const user = await User.findById(userId);
+          console.log(user);
+          return { user_id: userId, full_name: user.fullName || 'Unknown' };
+        } catch (error) {
+          console.error(`Error fetching user details for user_id ${userId}:`, error);
+          return { user_id: userId, full_name: 'Unknown' };
+        }
+      });
+    // Wait for all user details to be fetched
+    const userDetails = await Promise.all(userDetailsPromises);
 
-    // Create a new Sifarish type
-    const newSifarishType = new SifarishtypesModel({ type, forms });
-    await newSifarishType.save();
+    // Add user_id and full_name to each entry in allSifarishValues
+    const enrichedSifarishValues = allSifarishValues.map((sifarishValue) => {
+      const userDetail = userDetails.find((detail) => detail.user_id === sifarishValue.user_id);
+      return {
+        ...sifarishValue.toObject(),
+        user_id: userDetail?.user_id,
+        full_name: userDetail?.full_name || 'Unknown',
+      };
+    });
 
-    res.status(201).json({ message: "Sifarish type added successfully" });
+    return res.json({ data: enrichedSifarishValues });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal Server Error", error });
+    console.error('Error fetching user details:', error);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
-  };
+};
 
-
-  const getRequiredFields = async (req, res) => {
-    try {
-      const { sifarish_id } = req.body;
-  
-      if (!sifarish_id) {
-        return res.status(400).json({ error: 'Title is required in the request' });
-      }
-      console.log(sifarish_id);
-      // Find the Sifarishtype document based on the provided title
-      const sifarishtype = await SifarishtypesModel.find({ sifarish_id: sifarish_id });
-      
-      if (!sifarishtype) {
-        return res.status(404).json({ error: 'Sifarishtype not found for the given title' });
-      }
-
-      return res.json({ sifarishtype });
-    } catch (error) {
-      console.error('Error fetching required fields:', error);
-      return res.status(500).json({ error: 'Internal Server Error' });
-    }
-  };
-  
-  
-  
-
-  
-  export { addSifarish,getRequiredFields };
+export { getAllSifarishValues };

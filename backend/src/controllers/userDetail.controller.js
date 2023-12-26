@@ -1,28 +1,49 @@
 import { SifarishValueModel } from "../models/sifarish.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
+let title;
+
 const saveDetailsForm = async (req, res) => {
   try {
-    const {user, sifarish_id, title, type, name, value, label, required } = req.body;
-
-    if (!sifarish_id || !title || !type || !name || !value || !label || required === undefined) {
+    const { user_id,municipality, sifarish_id, type,  wardId, address,fathername, applicantName,applicantMobileNumber } = req.body;
+    
+    let user = req.user;
+    switch (sifarish_id) {
+      case "1":
+        title = "विवाह प्रमाणित गर्ने सिफारिस";
+        break;
+      case "2":
+        title = "जन्म दर्ता बनाउने सिफारिस";
+        break;
+      case "3":
+        title = "नागरिकता प्रमाणपत्र बनाउने सिफारिस";
+        break;
+      default:
+        title = "विवाह प्रमाणित गर्ने सिफारिस";
+        break;
+    }
+    console.log(title)
+    if (!sifarish_id || !type || !municipality || !wardId || !address || !wardId || !wardId || !applicantMobileNumber) {
       return res.status(400).json({ error: 'Invalid request body' });
     }
-    console.log(user);
+
     // Assuming SifarishValueModel is the model to save the form details
     const newSifarishValue = new SifarishValueModel({
       sifarish_id,
       title,
-      type,
-      name,
-      value,
-      label,
-      required,
+      type, 
+      municipality,
+      wardId,
+      address,
+      applicantName,
+      fathername,
+      applicantMobileNumber,
+      user_id: user._id
     });
 
     const savedSifarishValue = await newSifarishValue.save();
-
-    return res.json({ message: "success"});
+    console.log(savedSifarishValue);
+    return res.json({ message: "success" });
   } catch (error) {
     console.error('Error saving form details:', error);
     return res.status(500).json({ error: 'Internal Server Error' });

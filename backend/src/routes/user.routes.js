@@ -1,7 +1,6 @@
 import express from "express";
 import {
-  addSifarish,
-  getRequiredFields
+  getAllSifarishValues
 } from "../controllers/sifarishDetail.controller.js";
 
 import {
@@ -16,6 +15,7 @@ import {
   uploadImage,
 } from "../controllers/user.controller.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
+import adminMiddleware from "../middlewares/admin.middleware.js";
 import multerMiddleware from "../middlewares/multer.middleware.js";
 
 const router = express.Router();
@@ -23,10 +23,14 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 
+
+// admin routes
+router.post('/admin/getdetailForm',adminMiddleware,getAllSifarishValues);
 // route In test
 // router.post('/admin/addSifarish',addSifarish);
-router.post('/getRequiredFields',authMiddleware,getRequiredFields);
+// router.post('/getRequiredFields',authMiddleware,getRequiredFields);
 router.post('/savedetailForm',authMiddleware,saveDetailsForm);
+
 
 // protected routes
 router.post("/logout", authMiddleware, logoutUser);
