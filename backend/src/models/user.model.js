@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema(
       enum: ["admin", "user"],
       default: "user",
     },
+    otp:{
+      type: Number,
+      default: null
+    }
   },
   { timestamps: true }
 );
