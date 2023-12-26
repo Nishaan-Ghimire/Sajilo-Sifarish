@@ -1,14 +1,14 @@
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
-import { generateRandomPassword, hashPassword } from '../utils/passwordGenerator.js'
-import pkg from 'nodemailer';
-const {nodemailer} = pkg;
+import {
+  generateRandomPassword,
+  hashPassword,
+} from "../utils/passwordGenerator.js";
 
 // Registration Controller
 const registerUser = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
-    console.log(fullName,email,password);
     if (!fullName?.trim() || !email?.trim() || !password?.trim()) {
       return res.status(400).json({ message: "All fields are required." });
     }
@@ -23,14 +23,12 @@ const registerUser = async (req, res) => {
     const newUser = new User({ fullName, email, password });
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ success: true });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
-
 
 // Login Controller
 const loginUser = async (req, res) => {
@@ -51,14 +49,12 @@ const loginUser = async (req, res) => {
     res.cookie("accessToken", accessToken, { httpOnly: true });
     res.cookie("refreshToken", refreshToken, { httpOnly: true });
 
-    res.json({ message: "User logged in successfully" });
+    res.json({ accessToken, refreshToken, role: user.role });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
-
 
 // Logout Controller
 const logoutUser = async (req, res) => {
@@ -87,7 +83,6 @@ const logoutUser = async (req, res) => {
   }
 };
 
-
 // Get user detail
 const getProfile = async (req, res) => {
   if (req.user) {
@@ -99,7 +94,6 @@ const getProfile = async (req, res) => {
 
   return res.status(404).json({ message: "User not found" });
 };
-
 
 // Photo upload controller
 const uploadImage = async (req, res) => {
@@ -122,27 +116,20 @@ const uploadImage = async (req, res) => {
   return res.status(200).json({ user });
 };
 
-
-
-
-
 // Reset password
 
-const resetPassword = async (req, res) =>{
+const resetPassword = async (req, res) => {
   const { email } = req.body;
   // console.log('here is mail');
-  console.log(email,"is not defined");
+  console.log(email, "is not defined");
   try {
-   
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: "User not found" });
     }
 
-
     const randomPassword = await generateRandomPassword();
-
 
     const mail = `<!DOCTYPE html>
     <html>
@@ -178,51 +165,50 @@ const resetPassword = async (req, res) =>{
         </body>
     </html>`;
 
-    const hashedPassword = await hashPassword(randomPassword,10);
+    const hashedPassword = await hashPassword(randomPassword, 10);
 
-   
     user.password = hashedPassword;
     await user.save();
 
-
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
-          user: 'nishanghimire92@gmail.com',
-          pass: process.env.APP_PASS
-      }
-  });
+        user: "nishanghimire92@gmail.com",
+        pass: process.env.APP_PASS,
+      },
+    });
 
-
-
-    
     const mailOptions = {
-      from: 'nishanghimire92@gmail.com', 
+      from: "nishanghimire92@gmail.com",
       to: email,
-      subject: 'Password Reset',
-      html:mail
+      subject: "Password Reset",
+      html: mail,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.log('Error occurred while sending email:', error);
-        return res.status(500).json({ error: 'An error occurred while sending the email' });
+        console.log("Error occurred while sending email:", error);
+        return res
+          .status(500)
+          .json({ error: "An error occurred while sending the email" });
       } else {
-        console.log('Email sent:', info.response);
-        return res.status(200).json({ message: 'Password reset successful' });
+        console.log("Email sent:", info.response);
+        return res.status(200).json({ message: "Password reset successful" });
       }
     });
   } catch (error) {
-    console.log('Error occurred:', error);
-    return res.status(500).json({ error: 'An error occurred while resetting the password' });
+    console.log("Error occurred:", error);
+    return res
+      .status(500)
+      .json({ error: "An error occurred while resetting the password" });
   }
-}
+};
 
-
-
-
-
-export { getProfile, loginUser, logoutUser, registerUser, uploadImage, resetPassword};
-
-
-
+export {
+  getProfile,
+  loginUser,
+  logoutUser,
+  registerUser,
+  resetPassword,
+  uploadImage,
+};
