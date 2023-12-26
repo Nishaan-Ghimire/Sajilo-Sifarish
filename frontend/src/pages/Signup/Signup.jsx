@@ -1,5 +1,32 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'; // Import Axios
 function Signup() {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+    
+        // Form data to be sent in the POST request
+        const formData = {
+          name: event.target.name.value,
+          email: event.target.email.value,
+          password: event.target.password.value,
+        };
+    
+        try {
+          // Make POST request to the specified endpoint
+          const response = await axios.post('http://localhost:8000/api/v1/users/register', formData);
+    
+          // Handle the response here if needed
+          console.log('Registration successful:', response.data);
+    
+          // Redirect or perform any other action after successful registration
+        } catch (error) {
+          // Handle error if the registration fails
+          console.error('Registration failed:', error);
+        }
+      };
+
+
   return (
     <>
 
@@ -8,7 +35,7 @@ function Signup() {
 <div className='flex flex-col h-screen bg-slate-300'>
 <section className="login flex justify-center pt-24">
     <div className="w-full max-w-xs">
-        <form action="/register" method="POST" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form action="/register" onSubmit={handleSubmit} method="POST" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -41,9 +68,9 @@ function Signup() {
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded" type="submit">
                     Sign up
                 </button>
-                <a  className="inline-block align-baseline font-bold text-sm" href="/login">
+                <Link to="/login"  className="inline-block align-baseline font-bold text-sm hover:text-slate-950" href="/login">
                    Already have account?
-                </a>
+                </Link>
             </div>
         </form>
         <p className="text-center text-slate-900 text-xs">

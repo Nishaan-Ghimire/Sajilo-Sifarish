@@ -272,3 +272,68 @@ body {
     }
   }
   
+
+
+  /* Table width and height fixing which is in User Dashboard */
+ .table {
+  width: 100%; /* Set the table width */
+  border-collapse: collapse; /* Optional: Collapses the border spacing into a single border */
+}
+
+.table th,
+.table td {
+  border: 8px solid black; /* Example border styling */
+  padding: 8px;
+  color: #060505;
+}
+
+/* Example: Set a fixed height for table rows */
+.table tbody tr {
+  height: 5vw; /* Set the height */
+}
+
+.table-container {
+  width: 100%;
+  
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.data-table th,
+.data-table td {
+  padding: 27px;
+  border: 1px solid rgb(18, 12, 12);
+  width: 400px;
+  
+}
+
+.data-table th {
+  background-color: #263043;
+  text-align: left;
+
+}
+
+.data-table tr:nth-child(even) {
+  background-color: white;
+  
+}
+.tablemain{
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  margin-left: 160px;
+}
+/* table{
+  border: 5px solid rgb(6, 5, 5);
+  outline: #060505;
+} */
+
+.data-table td{
+  color: #060505;
+}
+
+
