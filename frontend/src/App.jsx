@@ -32,14 +32,14 @@ function App() {
   {/* <About/> */}
   {/* <AdminDashboard/> */}
 
-    <Router>
+    {/* <Router>
       <Routes>
         <Route exact path= '/' element={ <><Navbar/> <Home/> </> }/>
         <Route exact path= '/about' element={ <>  <Navbar/> <About/></> }/>
         <Route exact path= '/signup' element={ <>  <Navbar/> <Signup/></> }/>
         <Route exact path= '/login' element={ <>  <Navbar/> <Login/></> }/>
       </Routes>
-    </Router>
+    </Router> */}
     </>
 )
 };
