@@ -1,27 +1,13 @@
 import React from 'react'
 
-const Nagrikta = () => {
+const Namsari = () => {
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
-    };
+    }
     return (
-        <div className=" mx-auto p-7 bg-white rounded-md shadow-md px-80  items-center">
-            <h1 className="text-2xl font-bold mb-4 underline text-red-500">नागरिकता फारम </h1>
-            <form>
-                <div className="mb-4 flex flex-row items-center w-full">
-                    <div className="flex-grow">
-                        <label htmlFor="municipality" className="block text-sm font-medium text-gray-600 text-left">
-                            गाउँ /नगरपालिका :<span className="text-red-500">*</span>
-                        </label>
-                        <input
-                            type="text"
-                            id="municipality"
-                            name="municipality"
-                            className="mt-1 p-2 border border-gray-700 rounded-md w-3/4"
-                            required='true'
-                        />
-                    </div>
-                </div>
+        <div className=" mx-auto p-7 bg-white rounded-md shadow-md md:px-80  items-center">
+            <h1 className="text-2xl font-bold mb-4 underline text-red-500">नामसारी फारम </h1>
+            <form >
                 <div className="mb-4 flex items-center w-full">
                     <div className="flex-grow">
                         <label htmlFor="applicantName" className="block text-sm font-medium text-gray-600 text-left">
@@ -35,18 +21,17 @@ const Nagrikta = () => {
                         />
                     </div>
                 </div>
-                <div className="mb-4 flex items-center w-full">
+                <div className="mb-4 flex flex-row items-center w-full">
                     <div className="flex-grow">
-                        <label htmlFor="applicantAge" className="block text-sm font-medium text-gray-600 text-left">
-                            आवेदकको उमेर:<span className="text-red-500">*</span>
+                        <label htmlFor="municipality" className="block text-sm font-medium text-gray-600 text-left">
+                            गाउँ /नगरपालिका :<span className="text-red-500">*</span>
                         </label>
                         <input
-                            type="number"
-                            id="applicantAge"
-                            name="applicantAge"
+                            type="text"
+                            id="municipality"
+                            name="municipality"
                             className="mt-1 p-2 border border-gray-700 rounded-md w-3/4"
-                            min='0'
-                            required="true"
+                            required='true'
                         />
                     </div>
                 </div>
@@ -80,29 +65,29 @@ const Nagrikta = () => {
                 </div>
                 <div className="mb-4 flex items-center w-full">
                     <div className="flex-grow">
-                        <label htmlFor="applicantMobileNumber" className="block text-sm font-medium text-gray-600">
-                            आवेदकको सम्पर्क नं:<span className="text-red-500">*</span>
+                        <label htmlFor="address" className="block text-sm font-medium text-gray-600 text-left">
+                            हाल बसेको स्थान :<span className="text-red-500">*</span>
                         </label>
                         <input
-                            type="tel"
-                            id="applicantMobileNumber"
-                            name="applicantMobileNumber"
-                            className="mt-1 p-2 border border-gray-700 rounded-md w-3/4"
-                            pattern='[0-9]'
+                            type="text"
+                            id="address"
+                            name="address"
+                            className="mt-1 p-2 border border-gray-700 rounded-md w-3/4 "
                             required="true"
                         />
                     </div>
                 </div>
                 <div className="mb-4 flex items-center">
-                    <label htmlFor="photo" className="block text-sm font-medium text-gray-600 mr-2">
-                        आवेदकको फोटो :<span className="text-red-500">*</span>        </label>
+                    <label htmlFor="filePhoto" className="block text-sm font-medium text-gray-600 mr-2">
+                        फरक भएको कागजातको फोटो:<span className="text-red-500">*</span>
+                    </label>
                     <input
                         type="file"
-                        id="applicantPhoto"
-                        name="applicantPhoto"
+                        id="filePhoto"
+                        name="filePhoto"
                         accept="image/*"
                         onChange={handleFileChange}
-                        className="mt-1 p-2 border border-gray-800 rounded-md hover-light"
+                        className="mt-1 p-2 border border-gray-800 rounded-md"
                     />
                 </div>
                 <div className="mb-4 flex items-center">
@@ -118,7 +103,6 @@ const Nagrikta = () => {
                         className="mt-1 p-2 border border-gray-800 rounded-md"
                     />
                 </div>
-
                 <button
                     type="submit"
                     className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
@@ -126,9 +110,8 @@ const Nagrikta = () => {
                     पेश गर्नुहोस्
                 </button>
             </form>
-
         </div>
     )
 }
 
-export default Nagrikta
+export default Namsari

@@ -5,7 +5,7 @@ const Janmadarta = () => {
         const selectedFile = event.target.files[0];
     }
     return (
-        <div className=" mx-auto p-7 bg-white rounded-md shadow-md px-80  items-center">
+        <div className=" mx-auto p-7 bg-white rounded-md shadow-md md:px-80  items-center">
             <h1 className="text-2xl font-bold mb-4 underline text-red-500">जन्मदर्ता फारम </h1>
             <form >
                 <div className="mb-4 flex items-center w-full">

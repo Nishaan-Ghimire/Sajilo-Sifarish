@@ -5,7 +5,7 @@ const TemplateAbibahitPranamit = () => {
         <div>
             <div>
                 <div className='py-10 '>
-                    <div className='flex font-arial w-full p-3 justify-between items-center px-60' >
+                    <div className='flex font-arial w-full p-3 justify-between items-center md:px-60' >
                         <img width={70} height={90} src='/images/nepal.png'></img>
                         <div >
                             <p className='font-bold text-red-500 text-center' >......पालिका</p>
@@ -16,7 +16,7 @@ const TemplateAbibahitPranamit = () => {
                     </div>
                     <hr className="my-4 border border-red-400" />
 
-                    <div className="bg-cover space-y-5 bg-center bg-opacity-80 h-screen  px-60" style={{ background: 'url("/images/logo_t.jpg")  no-repeat center ', height: '80%' }}>
+                    <div className="bg-cover space-y-5 bg-center bg-opacity-80 h-screen  md:px-60" style={{ background: 'url("/images/logo_t.jpg")  no-repeat center ', height: '80%' }}>
                         <h1 className='text-right pr-20 mb-20'>मिति : २०७२/१२/१२ गते</h1>
 
                         <h1 className='text-center'>विषय : अविवाहित प्रमाणित गर्ने  |</h1>
@@ -31,7 +31,7 @@ const TemplateAbibahitPranamit = () => {
                     </div>
                 </div >
                 <hr className="my-4 border border-red-400" />
-                <footer className='mb-2 px-60'>
+                <footer className='mb-2 md:px-60'>
 
                 </footer>
 

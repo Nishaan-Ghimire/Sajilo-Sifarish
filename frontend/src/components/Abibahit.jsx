@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Bibahit = () => {
+const Abibahit = () => {
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
     };
     return (
-        <div className=" mx-auto p-7 bg-white rounded-md shadow-md px-80  items-center">
+        <div className=" mx-auto p-7 bg-white rounded-md shadow-md md:px-80  items-center">
             <h1 className="text-2xl font-bold mb-4 underline text-red-500">अविवाहित फारम </h1>
 
             <form>
@@ -189,4 +189,4 @@ const Bibahit = () => {
     )
 }
 
-export default Bibahit
+export default Abibahit
