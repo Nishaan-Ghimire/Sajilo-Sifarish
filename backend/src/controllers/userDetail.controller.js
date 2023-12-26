@@ -2,6 +2,7 @@ import { SifarishValueModel } from "../models/sifarish.model.js";
 import { User } from "../models/user.model.js";
 import { UserDocument } from "../models/userDocuments.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { gemini } from "../utils/gemini.js";
 
 let title;
 
@@ -74,8 +75,10 @@ const saveDetailsForm = async (req, res) => {
 const multipleFileUpload = async (req, res) => {
   try {
     const { citizenshipId } = req.body;
-    const frontPath = req?.files?.front[0]?.path;
-    const backPath = req?.files?.back[0]?.path;
+    const frontPath = req?.files?.front[0]?.path.toString();
+    const backPath = req?.files?.back[0]?.path.toString();
+
+    await gemini(req.user._id, frontPath, backPath);
 
     if (!citizenshipId || !frontPath || !backPath) {
       return res
