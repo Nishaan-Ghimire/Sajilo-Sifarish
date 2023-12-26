@@ -3,7 +3,8 @@ import {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
 
 function AdminHeader({OpenSidebar}) {
   return (
-    <header className='header'>
+    <>
+    <header className='header' >
       <div className='menu-icon'>
         <BsJustify className='icon' onClick={OpenSidebar}/>
       </div>
@@ -22,6 +23,7 @@ function AdminHeader({OpenSidebar}) {
         </div> 
 
     </header>
+    </>
   )
 }
 

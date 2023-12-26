@@ -60,7 +60,9 @@ body {
     display: flex; /* Use flexbox */
     justify-content: space-between; /* Adjust alignment as needed */
   }
-
+/* .header-left{
+  width: 100vw;
+} */
   .element {
     margin-right: 15px;
     cursor: pointer;
@@ -272,3 +274,8 @@ body {
     }
   }
   
+/* .adminHeader{
+  width: 100%;
+} */
+
+

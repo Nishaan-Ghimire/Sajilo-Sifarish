@@ -3,6 +3,8 @@ import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 import 
 { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill,  BsFillBellFill, BsExclamationCircle }
  from 'react-icons/bs'
+import AdminHeader from './AdminHeader';
+import AdminSidebar from './AdminSidebar';
 
 
 function AdminHome() {
