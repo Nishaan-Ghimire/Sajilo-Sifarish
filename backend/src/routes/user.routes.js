@@ -10,6 +10,7 @@ import {
 import authMiddleware from "../middlewares/auth.middleware.js";
 import multerMiddleware from "../middlewares/multer.middleware.js";
 
+// api.post("/register", data)
 const router = express.Router();
 
 router.post("/register", registerUser);
