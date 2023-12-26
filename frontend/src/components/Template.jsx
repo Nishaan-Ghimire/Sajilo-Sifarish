@@ -8,9 +8,9 @@ const Template = () => {
                 <div className='flex font-arial w-full p-3 justify-between items-center px-60' >
                     <img width={70} height={90} src='/images/nepal.png'></img>
                     <div >
-                        <p className='font-bold text-red-500 text-center' >बरियारपट्टी गाउँपालिका</p>
-                        <h1 className='text-center'>वडा नं. 1 को कार्यालय बरियारपट्टी, सिरहा</h1>
-                        <h1 className='text-center'>मधेश प्रदेश, नेपाल</h1>
+                        <p className='font-bold text-red-500 text-center' >......पालिका</p>
+                        <h1 className='text-center'>वडा नं. ...को कार्यालय ....(कार्यालय रहेको स्थान ), ....(जिल्ला)</h1>
+                        <h1 className='text-center'>.... प्रदेश, नेपाल</h1>
                     </div>
                     <img width={70} height={90} src='/images/nepal.png'></img>
                 </div>
@@ -21,7 +21,7 @@ const Template = () => {
 
                     <h1 className='text-center'>विषय : नामसारी सिफारिस |</h1>
                     <h1 className='text-left'>श्री जो जससँग सम्बन्धित छ।  </h1>
-                    <h1 className='text-left'>बरियारपट्टी  गाउँ/नगरपालिका  वडा नं { }  को Kathmandu मा निवासी श्री Grandfather Name को नाति/नातिनी श्री FatherName को छोरा/छोरी श्री Applicant Name को तपसिलमा उल्लिखित विवरण अनुसारको कागजातमा नाम, थर जन्म मिति संशोधनको सिफारिस पाउँ भनी यस कार्यालयमा निवेदन दिनुभएकोमा निजले पेश गरेका व्यत्तिगत कागजातको अध्ययन / मिति 2079/11/11 मा गरिएको स्थानीय सर्जमिन मुचुल्का समेतको आधारमा सो व्यहोरा मनासिव भएको देखिएकोले नाम थर, जन्म मिति संशोधनका लागि स्थानीय सरकार सञ्चालन ऐन, २०७४ को दफा १२ (२)ङ(१६) बमोजिम सिफारिस गरिन्छ ।</h1>
+                    <h1 className='text-left'>......  गाउँ/नगरपालिका  वडा नं { }  को ..... मा निवासी श्री ..... को नाति/नातिनी श्री ...... को छोरा/छोरी श्री ...... को तपसिलमा उल्लिखित विवरण अनुसारको कागजातमा नाम, थर जन्म मिति संशोधनको सिफारिस पाउँ भनी यस कार्यालयमा निवेदन दिनुभएकोमा निजले पेश गरेका व्यत्तिगत कागजातको अध्ययन / मिति ...... मा गरिएको स्थानीय सर्जमिन मुचुल्का समेतको आधारमा सो व्यहोरा मनासिव भएको देखिएकोले नाम थर, जन्म मिति संशोधनका लागि स्थानीय सरकार सञ्चालन ऐन, २०७४ को दफा १२ (२)ङ(१६) बमोजिम सिफारिस गरिन्छ ।</h1>
                     <div className=' space-y-7'>
                         <p className='underline text-center '>नाम थर ,जन्म मिति संसोधनको विवरण </p>
                         <table className="min-w-full bg-white border border-black">
@@ -45,6 +45,7 @@ const Template = () => {
                     </div>
                     <div className='pt-20'>
                         <h1 className='text-right '>हस्ताक्षर...............</h1>
+                        <h1 className='text-right '>(वडा अध्यक्ष्य )</h1>
                     </div>
                 </div>
             </div >

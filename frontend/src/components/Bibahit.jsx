@@ -163,6 +163,19 @@ const Bibahit = () => {
                         className="mt-1 p-2 border border-gray-800 rounded-md"
                     />
                 </div>
+                <div className="mb-4 flex items-center">
+                    <label htmlFor="slip" className="block text-sm font-medium text-gray-600 mr-2">
+                        तोकेको शुल्क बुझाएको रशिदको फोटो:<span className="text-red-500">*</span>
+                    </label>
+                    <input
+                        type="file"
+                        id="slip"
+                        name="slip"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        className="mt-1 p-2 border border-gray-800 rounded-md"
+                    />
+                </div>
 
 
                 <button
