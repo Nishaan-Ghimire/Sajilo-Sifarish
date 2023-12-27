@@ -15,15 +15,14 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Dashboard from "./pages/User Dashboard/Dashboard";
 import AdminDashboard from "./pages/Admin Dashboard/AdminDashboard";
+
 import Sidebar from "./pages/User Dashboard/Sidebar";
 import AdminStatus from "./pages/Admin Dashboard/AdminStatus";
 import Status from "./pages/User Dashboard/Status";
 
-
-
-
 function App() {
   return (
+
   <>
   <Router>
 
@@ -40,20 +39,10 @@ function App() {
     <Route path="/janmaDartaSifarish" element={<Janmadarta/>}/>
     <Route path="/namsariSifarish" element={<Namsari/>}/>
     <Route path="/sifarishdemo" element={<TemplateJanmaDarta/>}/>
-    
-
     </Routes>
-
-
-
-
   </Router>
 
-
-
-  </>
-  )
-
-}
+)
+};
 
 export default App;
