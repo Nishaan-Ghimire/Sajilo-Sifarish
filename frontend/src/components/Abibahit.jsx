@@ -5,6 +5,10 @@ const Abibahit = () => {
         const selectedFile = event.target.files[0];
     };
     return (
+        <>
+        {/* <Header /> */}
+        {/* <Sidebar /> */}
+      
         <div className=" mx-auto p-7 bg-white rounded-md shadow-md md:px-80  items-center">
             <h1 className="text-2xl font-bold mb-4 underline text-red-500">अविवाहित फारम </h1>
 
@@ -186,6 +190,7 @@ const Abibahit = () => {
                 </button>
             </form>
         </div>
+        </>
     )
 }
 

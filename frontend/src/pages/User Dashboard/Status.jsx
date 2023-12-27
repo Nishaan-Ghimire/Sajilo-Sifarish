@@ -1,9 +1,14 @@
 import React from 'react'
 import './Dashboard.css'
+import Header from './Header'
+import Sidebar from './Sidebar'
+
 
 function Status() {
   return (
     <>
+    <Header/>
+    <Sidebar />
     <div className='tablemain'>
  <div className="table-container">
       <table border={1} className="data-table">
