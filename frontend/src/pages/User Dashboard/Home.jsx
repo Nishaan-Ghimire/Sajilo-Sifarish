@@ -26,30 +26,7 @@ function Home() {
           pv: 9800,
           amt: 2290,
         },
-        {
-          name: 'Page D',
-          uv: 2780,
-          pv: 3908,
-          amt: 2000,
-        },
-        {
-          name: 'Page E',
-          uv: 1890,
-          pv: 4800,
-          amt: 2181,
-        },
-        {
-          name: 'Page F',
-          uv: 2390,
-          pv: 3800,
-          amt: 2500,
-        },
-        {
-          name: 'Page G',
-          uv: 3490,
-          pv: 4300,
-          amt: 2100,
-        },
+       
       ];
 
 
@@ -62,127 +39,32 @@ function Home() {
             <h3>DASHBOARD</h3>
         </div> */}
         <div className='main-cards mt-10'>
+          <a href="/abibahitSifarish">
                     <div className='card h-20  hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
                         <div className='card-inner h-full flex justify-center items-center '>
-                            <h3 className='text-center'>PRODUCTS</h3>
+                            <h3 className='text-center'>विवाह प्रमाणित गर्ने सिफारिस</h3>
                         </div>
                     </div>
-
+                    </a>
+                    <a href="/janmaDartaSifarish">
                     <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
                         <div className='card-inner h-full flex justify-center items-center '>
-                            <h3 className='text-center'>PRODUCTS</h3>
+                            <h3 className='text-center'>नागरिकता प्रमाणपत्र बनाउने सिफारिस</h3>
                         </div>
                     </div>
-                    
+                    </a>
+                    <a href="/namsariSifarish">
                     <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
                         <div className='card-inner h-full flex justify-center items-center '>
-                            <h3 className='text-center'>PRODUCTS</h3>
+                            <h3 className='text-center'>जन्म दर्ता बनाउने सिफारिस</h3>
                         </div>
                     </div>
-
-                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
-                        <div className='card-inner h-full flex justify-center items-center '>
-                            <h3 className='text-center'>PRODUCTS</h3>
-                        </div>
-                    </div>
-
-                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
-                        <div className='card-inner h-full flex justify-center items-center '>
-                            <h3 className='text-center'>PRODUCTS</h3>
-                        </div>
-                    </div>
-
-                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
-                        <div className='card-inner h-full flex justify-center items-center '>
-                            <h3 className='text-center'>PRODUCTS</h3>
-                        </div>
-                    </div>
-
-                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
-                        <div className='card-inner h-full flex justify-center items-center '>
-                            <h3 className='text-center'>PRODUCTS</h3>
-                        </div>
-                    </div>
-
-                    <div className='card h-20 hover:bg-cyan-700 hover:text-white transition-colors duration-300 ease-in-out'> 
-                        <div className='card-inner h-full flex justify-center items-center '>
-                            <h3 className='text-center'>PRODUCTS</h3>
-                        </div>
-                    </div>
+                    </a>
 
 
-                    {/* <div  className='card'>
-                    <div className='card-inner'>
-                        <h3>CATEGORIES</h3>
-                        <BsFillGrid3X3GapFill className='card_icon' />
-                    </div>
-                    <h1>12</h1>
-                    </div>
-
-                    <div  className='card'>
-                    <div className='card-inner'>
-                        <h3>CUSTOMERS</h3>
-                        <BsPeopleFill className='card_icon' />
-                    </div>
-                    <h1>35</h1>
-                    </div>
-
-                    <div  className='card'>
-                    <div className='card-inner'>
-                        <h3>ALERTS</h3>
-                        <BsFillBellFill className='card_icon' />
-                    </div>
-                    <h1>42</h1>
-                    </div> */}
+       
         </div>
 
-        {/* <div className='charts'>
-        <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-          <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
-        </BarChart>
-      </ResponsiveContainer>
-
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
-
-
-        </div> */}
 
     </main>
     </>

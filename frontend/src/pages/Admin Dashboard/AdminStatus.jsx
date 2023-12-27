@@ -1,9 +1,15 @@
 import React from 'react'
 import './AdminDashboard.css'
+import AdminHeader from './AdminHeader'
+import AdminSidebar from './AdminSidebar'
 
 function AdminStatus() {
   return (
+    <>
+       <AdminHeader/>
+    <AdminSidebar/>
     <div className='tablemain'>
+   
  <div className="table-container">
       <table border={1} className="data-table">
       <thead className="table-dark">
@@ -41,6 +47,7 @@ function AdminStatus() {
     </div>
 
     </div>
+    </>
   )
 }
 

@@ -7,7 +7,7 @@ const TemplateJanmaDarta = () => {
                 <div className='flex font-arial w-full p-3 justify-between items-center md:px-60' >
                     <img width={70} height={90} src='/images/nepal.png'></img>
                     <div >
-                        <p className='font-bold text-red-500 text-center' >......पालिका</p>
+                        <p className='font-bold text-red-500 text-center' >{"इलाम"}पालिका</p>
                         <h1 className='text-center'>वडा नं. ...को कार्यालय ....(कार्यालय रहेको स्थान ), ....(जिल्ला)</h1>
                         <h1 className='text-center'>.... प्रदेश, नेपाल</h1>
                     </div>

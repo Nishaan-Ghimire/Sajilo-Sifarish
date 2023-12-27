@@ -1,7 +1,6 @@
 
 import bcrypt from 'bcrypt';
 
-import crypto from 'crypto';
 
 function generateRandomPassword(length) {
   const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=<>?';

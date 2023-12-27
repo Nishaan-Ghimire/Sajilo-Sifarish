@@ -1,6 +1,8 @@
 import React from 'react'
 import "./Login.css" 
 import { Link } from 'react-router-dom'
+import Navbar from '../../components/Navbar';
+import axios from 'axios'
 function Login() {
 
     const handleSubmit = async (event) => {
@@ -15,8 +17,17 @@ function Login() {
           const response = await axios.post('http://localhost:8000/api/v1/users/login', formData);
     
           console.log('Login successful:', response.data);
-    
+          if(response.data.role === "user")
+          {
+                  window.location.href="/user-home";
+          }else{
+            window.location.href="/admin";
+          }
+        //   console.log(response.data.role)
+            
           // Redirect or perform any action after successful login
+    
+
         } catch (error) {
           console.error('Login failed:', error);
         }
@@ -25,13 +36,14 @@ function Login() {
 
   return (
     <>
+    <Navbar/>
     <div className='flex flex-col h-screen bg-slate-300'>
     <section className="login flex justify-center pt-24">
     <div className="w-full max-w-xs">
         <form action="/login" method="POST" onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
             <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="username">
+                <label className="block text-gray-700 text-sm font-bold mb-2" forhtml="username">
                     Email
                 </label>
                 <input
@@ -40,7 +52,7 @@ function Login() {
                     id="username" type="email" placeholder="Enter your email"/>
             </div>
             <div className="mb-6">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
+                <label className="block text-gray-700 text-sm font-bold mb-2" forhtml="password">
                     Password
                 </label>
                 <input

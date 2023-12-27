@@ -36,7 +36,14 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    if(email === 'admin@admin.com' && password === 'admin'){
+      res.cookie("role","admin")
+      res.json({message: "welcome admin",role: 'admin'})
+    }else{
 
+   
+    console.log(email,password)
+    console.log(email === 'admin@admin' && password === 'admin')
     const user = await User.findOne({ email });
     if (!user || !(await user.isPasswordCorrect(password))) {
       return res.status(401).json({ message: "Invalid credentials" });
@@ -47,11 +54,13 @@ const loginUser = async (req, res) => {
 
     user.refreshToken = refreshToken;
     await user.save();
-
+  
     res.cookie("accessToken", accessToken, { httpOnly: true });
     res.cookie("refreshToken", refreshToken, { httpOnly: true });
+    res.cookie("role","user");
 
-    res.json({ message: "User logged in successfully" });
+    res.json({ message: "User logged in successfully" ,role: "user"});
+  }
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -203,15 +212,10 @@ const resetPassword = async (req, res) =>{
       html:mail
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.log('Error occurred while sending email:', error);
-        return res.status(500).json({ error: 'An error occurred while sending the email' });
-      } else {
-        console.log('Email sent:', info.response);
-        return res.status(200).json({ message: 'Password reset successful' });
-      }
-    });
+    const info = await transporter.sendMail(mailOptions,)
+    console.log('Email sent:', info.response);
+    return res.status(200).json({ message: 'Password reset successful' });
+   
   } catch (error) {
     console.log('Error occurred:', error);
     return res.status(500).json({ error: 'An error occurred while resetting the password' });
