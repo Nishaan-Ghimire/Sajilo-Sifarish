@@ -19,7 +19,7 @@ import AdminDashboard from "./pages/Admin Dashboard/AdminDashboard";
 import Sidebar from "./pages/User Dashboard/Sidebar";
 import AdminStatus from "./pages/Admin Dashboard/AdminStatus";
 import Status from "./pages/User Dashboard/Status";
-
+// Nishant
 function App() {
   return (
 
@@ -41,6 +41,7 @@ function App() {
     <Route path="/sifarishdemo" element={<TemplateJanmaDarta/>}/>
     </Routes>
   </Router>
+  </>
 
 )
 };
